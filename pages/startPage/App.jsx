@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import DateRange from "./components/DateRange";
-import Dashboard from "./components/Dashboard";
+import DateRange from "./src/components/DateRange";
+import Dashboard from "./src/components/Dashboard";
 import { Box } from "@mui/material";
 import dayjs from "dayjs";
 
