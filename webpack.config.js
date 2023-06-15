@@ -6,10 +6,10 @@ const baseConfig = require("@splunk/webpack-configs/base.config").default;
 
 // Set up an entry config by iterating over the files in the pages directory.
 const entries = fs
-  .readdirSync(path.join(__dirname, "src/main/webapp/pages"))
+  .readdirSync(path.join(__dirname, "pages"))
   .filter((pageFile) => !/^\./.test(pageFile))
   .reduce((accum, page) => {
-    accum[page] = path.join(__dirname, "src/main/webapp/pages", page);
+    accum[page] = path.join(__dirname, "pages", page);
     return accum;
   }, {});
 
@@ -22,7 +22,7 @@ module.exports = webpackMerge(baseConfig, {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: path.join(__dirname, "src/main/resources/splunk"),
+        from: path.join(__dirname, "splunk"),
         to: path.join(__dirname, "stage"),
       },
     ]),
