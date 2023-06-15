@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 const baseConfig = require("@splunk/webpack-configs/base.config").default;
 
@@ -16,17 +15,9 @@ const entries = fs
 module.exports = webpackMerge(baseConfig, {
   entry: entries,
   output: {
-    path: path.join(__dirname, "stage/appserver/static/pages/"),
+    path: path.join(__dirname, "appserver/static/pages/"),
     filename: "[name].js",
   },
-  plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: path.join(__dirname, "splunk"),
-        to: path.join(__dirname, "stage"),
-      },
-    ]),
-  ],
   module: {
     rules: [
       {
