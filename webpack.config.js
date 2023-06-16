@@ -5,10 +5,10 @@ const baseConfig = require("@splunk/webpack-configs/base.config").default;
 
 // Set up an entry config by iterating over the files in the pages directory.
 const entries = fs
-  .readdirSync(path.join(__dirname, "pages"))
+  .readdirSync(path.join(__dirname, "src/pages"))
   .filter((pageFile) => !/^\./.test(pageFile))
   .reduce((accum, page) => {
-    accum[page] = path.join(__dirname, "pages", page);
+    accum[page] = path.join(__dirname, "src/pages", page);
     return accum;
   }, {});
 
